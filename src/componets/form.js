@@ -1,9 +1,9 @@
 import React from "react";
 
 //component Form
-const Form = ({ setInputTexts, todos, setTodos, inputText }) => {
+const Form = ({ setInputTexts, todos, setTodos, inputText, setStatus }) => {
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     //  props.setInputTexts
     setInputTexts(e.target.value);
   };
@@ -12,12 +12,14 @@ const Form = ({ setInputTexts, todos, setTodos, inputText }) => {
     e.preventDefault();
     setTodos([
       ...todos,
-      { text: inputText, complete: false, id: Math.random() * 1000 },
+      { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
     setInputTexts("");
     console.log({ todos });
   };
-
+  const statusHandler = (e) =>{
+    setStatus(e.target.value)
+  }
   return (
     <div>
       <form>
@@ -35,7 +37,7 @@ const Form = ({ setInputTexts, todos, setTodos, inputText }) => {
           <i className="fas fa-puls-square">+</i>
         </button>
         <div className="select">
-          <select name="todos" className="filter-todo">
+          <select  onChange={statusHandler} name="todos" className="filter-todo">
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
