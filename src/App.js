@@ -3,6 +3,7 @@ import Form from "./componets/form";
 import TodoList from "./componets/toDolist";
 import { useState, useEffect } from "react";
 
+
 function App() {
   const [inputTexts, setInputTexts] = useState("");
   const [todos, setTodos] = useState([]);
@@ -51,7 +52,7 @@ const getLocalTodos = () => {
   return (
     <div className="App">
       <header>
-        <h1>App ToDo List</h1>
+        <h1>APP ToDo List</h1>
       </header>
       <Form
         inputText={inputTexts}
